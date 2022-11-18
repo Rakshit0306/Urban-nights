@@ -1,0 +1,34 @@
+body{
+    background-color:rgb(129, 29, 29);
+    color: red;
+    background-image: url(https://ak7.picdn.net/shutterstock/videos/12173597/thumb/1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+#nightnav{
+    background-color: black;
+}
+.container.main{
+    margin-top:7.0em;
+    background-color: white;
+    border-radius: 10px;
+}
+#delete{
+    display: inline;
+}
+#comments{
+    background-color: black;
+    width: auto;
+}
+
+#login-form{
+    margin: 20px auto;
+    margin-top: 10vw;
+    align-content: center;
+    text-align: center;
+    width: 50vw;
+    opacity: 0.7;
+}
+
