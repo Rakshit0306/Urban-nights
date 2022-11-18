@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<div class="ui main text container segment">
+    <div class="ui huge header">Comments:</div>
+    <form class="ui form" action="/stories/<%= story._id %>/comments" method="POST">
+        <div class="field">
+            <label>Text</label>
+            <input type="text" name="comment[text]" placeholder="title">
+        </div>
+        
+        <input class="ui red inverted button" type="submit">
+    </form>
+</div>
+
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+<div class="ui main text container segment">
+    <div class="ui huge header">New Nightmare!!</div>
+    <form class="ui form" action="/stories" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="story[title]" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Image Url</label>
+            <input type="text" name="story[image]" placeholder="image url">
+        </div>
+        <div class="field">
+            <label>Story</label>
+            <textarea name="story[body]" name="editor1" class="ckeditor" id="editor1" rows="10" cols="80"></textarea>
+            <script>
+                CKEDITOR.replace( 'editor1' );
+            </script>
+        </div>
+        <input class="ui red inverted button" type="submit">
+    </form>
+</div>
+
+
+<%- include('../partials/footer') %>

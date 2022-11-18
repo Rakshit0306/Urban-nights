@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+<div class="ui main text container segment">
+    <div class="meta">
+        <strong><i class="user circle icon"></i><a><%= story.author.username %></a></strong>
+       </div><hr>
+    <div class="ui huge header"><%= story.title%></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= story.image%>">
+            <div class="content">
+                <span><%= story.created.toDateString() %></span>
+            </div>
+            <div class="description">
+               
+                <p><%- story.body %></p>
+            </div><br>
+            <% if(currentUser && story.author.id.equals(currentUser._id)){ %>
+            <a class="ui blue inverted button" href="/stories/<%= story._id %>/edit">Edit</a>
+            <form id="delete" action="/stories/<%= story._id %>?_method=DELETE" method="POST">
+                <button class="ui red inverted button">Delete</button>
+            </form>
+            <% } %>
+        </div>
+        <div class="ui raised text container segment" id="comments">
+            <div class="text-right">
+                <a class="ui green inverted button" href="/stories/<%= story._id %>/comments/new">Add new comment</a>
+            </div>
+            <% story.comments.forEach(function(comment){ %>
+                <div class="ui inverted divider"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><i class="user circle icon"></i><%= comment.author.username %></strong>
+                        <br>
+                        <p>
+                            <%= comment.text %>
+                        </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-link"
+                         href="/stories/<%= story._id %>/comments/<%= comment._id %>/edit">
+                         Edit</a>
+                         <form id="delete" action="/stories/<%= story._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                            <input class="btn btn-xs btn-link" type="submit" value="Delete">
+                         </form>
+                         <% } %>
+                    </div>
+                </div><br>
+            <% }) %>
+        </div>
+        
+    </div>
+
+</div>
+
+
+<%- include('../partials/footer') %>

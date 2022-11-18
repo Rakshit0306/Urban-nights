@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+<div class="ui main text container">
+    <div class="ui grid">
+        <div class="ui top attached segment">
+            <div class="ui items">
+                <% stories.forEach(function(story){ %>
+                    <div class="item">
+                        
+                        <div class="image">
+                            <img src="<%= story.image %>">
+                        </div>
+                        <div class="content">
+                            <div class="meta">
+                                <strong><i class="user circle icon"></i><a><%= story.author.username %></a></strong>
+                               </div><br>
+                            <a class="header" href="/stories/<%= story._id%>"><%= story.title %></a>
+                            <div class="meta">
+                                <span><%= story.created.toDateString() %></span>
+                            </div><br>
+                            <div class="description">
+                                <p></p><%- story.body.substring(0, 100) %>......</p>
+                            </div><br>
+                            <div class="extra">
+                                <a class="ui floated basic red button" href="/stories/<%= story._id%>">
+                                Read More
+                                <i class="right chevron icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div><hr>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%- include('../partials/footer') %>
